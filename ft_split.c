@@ -53,6 +53,8 @@ int last_symbol(int const last, char *str, char const sep)
     return (-1);
 }
 
+// Формируем длинну слова
+
 int word_length(char const *str, char const sep, int const next)
 {
     int i;
