@@ -1,0 +1,15 @@
+{
+    "42header.username": "jleslee",
+    "42header.email": "jleslee@student.21-school.ru",
+    "files.associations": {
+        "libft.h": "c",
+        "array": "c",
+        "hash_map": "c",
+        "bitset": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "utility": "c",
+        "valarray": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}
