@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
+#include <stdio.h>
+#include "ft_strlen.c"
 
 // Обрезка строки s1, если в начале и
 // В конце строки встречаются символы
@@ -21,41 +23,66 @@ int set_check(char const sym, char const *set)
 	int i;
 
 	i = 0;
-	if (ft_strlen(*set) == 0)
-		return (0);
+	if (ft_strlen(set) == 0)
+		return (-1);
 	while (set[i] != '\0')
+	{
 		if (set[i] == sym)
 			return (1);
-	return (0);    
+		i++;
+	}
+	return (0);
+}
+
+int word_counter(char const *str, char const *set)
+{
+	int i;
+	int counter;
+
+	i = 0;
+	counter = 0;
+	while(set_check(str[i], set) == 1)
+		i++;
+	while(set_check(str[i], set) == 0)
+	{
+		i++;
+		counter++;
+	}
+	if (set_check(str[i], set) == 1)
+		return(counter);
+	return(counter);
 }
 
 char *ft_strtrim(char const *s1, char const *set)
 {
 	int i;
-	int first;
-	int last;
-	size_t length;
-	char res;
+	int j;
+	char *res;
 	
 	i = 0;
-	first = 0;
-	last = 0;
-	while(set_check(s1[i], *set) != 0)
+	j = 0;
+	if (!(res = (char *)malloc(sizeof(char) * (word_counter(s1, set) + 1))));
+		return(NULL);
+	while (set_check(s1[i], set) == 1)
 		i++;
-		first++;
-	i = (ft_strlen(*s1) +1);
-	while(set_check(s1[i], *set) != 0)
-		i--;
-		last++;
-	length = (ft_strlen(*s1) - first - last + 1);
-	res = NULL;
-	res = (char *)malloc(length);
-	if (res = NULL)
-		return (NULL);
-	i = 0;
-	while(i < length)
-		res[i] = s1[first];
+	while (set_check(s1[i], set) == 0)
+	{
+		res[j] = s1[i];
 		i++;
-		first++;
-	return (res);
+		j++;
+	}
+	if(set_check(s1[i], set) == 1)
+	{
+		res[i] = '\0';
+		return (res);
+	}
+	return (0);
+}
+
+int main(int argc, char *argv[]){
+	if(argc > 0){
+		printf("%s", ft_strtrim(argv[1], argv[2]));
+		printf("%c", '\n');
+	}
+	return (0);
 }

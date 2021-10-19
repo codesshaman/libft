@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 // Подсчёт длинны строки
 
@@ -25,3 +26,11 @@ int ft_strlen(const char *s)
 	}
 	return (i);
 }
+
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		printf("%d", ft_strlen(argv[1]));
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }

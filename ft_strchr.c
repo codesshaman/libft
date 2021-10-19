@@ -10,19 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
+#include <stdio.h>
+#include "ft_strlen.c"
 
 // Поиск первого вхождения символа в строке,
 // NULL если символ не найден
 
-char *ft_strchr (const char *str, int ch)
+char *ft_strchr(const char *str, int ch)
 {
-	int i;
+	char	*ptr;
+	char	sym;
+	int		i;
 
 	i = 0;
-	while(i < ft_strlen(*str))
-		if(str[i] == ch)
-			return ((char *)str[i]);
+	ptr = (char *)str;
+	sym = (char)ch;
+	while ((ptr[i] != 0) && (ptr[i] != sym))
 		i++;
-	return (NULL);
+	return ((ptr[i] == sym) ? ptr[i] : NULL);
+}
+
+int main(int argc, char *argv[]){
+	if(argc > 0){
+		printf("%d", ft_strchr(argv[1], argv[2]));
+		printf("%c", '\n');
+	}
+	return (0);
 }
