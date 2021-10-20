@@ -4,3 +4,4 @@
 a.exe
 a.out
 git log --pretty=format:"%h - %an, %ar : %s"
+communications

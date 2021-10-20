@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 // Заполняем ячейки массива нулями
 // *dest - указатель на массив
@@ -25,7 +26,19 @@ void ft_bzero(void *dest, size_t s)
 	arr = (char *)dest;
 	while(i < s)
 	{
-		arr[i] = 0;
+		arr[i] = '0';
 		i++;
 	}
+}
+
+// memset
+
+int main(int argc, char *argv[]){
+	if(argc > 0){
+		char arr[4] = "abcd";
+		ft_bzero(arr, (size_t)4);
+		printf("%s", arr);
+		printf("%c", '\n');
+	}
+	return (0);
 }
