@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 // dest - заполняемый массив, 
 // char - символ для заполнения, 
@@ -32,12 +32,12 @@ void *ft_memset(void *dest, int ch, size_t n)
 	return ((char *)dest);
 }
 
-int main(int argc, char *argv[]){
-	if(argc > 0){
-		char arr[4] = "abcd";
-		char arr2[4] = ft_memset(arr, 1, (size_t)4);
-		printf("%s", arr);
-		printf("%c", '\n');
-	}
-	return (0);
-}
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		char arr[4] = "abcd";
+// 		ft_memset(arr, '1', (size_t)4);
+// 		printf("%s", arr);
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }
