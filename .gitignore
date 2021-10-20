@@ -3,6 +3,5 @@
 .vscode/tasks.json
 a.exe
 a.out
-git log --pretty=format:"%h - %an, %ar : %s"
 glog -n 5
 communications

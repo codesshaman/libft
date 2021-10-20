@@ -11,9 +11,17 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
+//#include "ft_memset.c"
 
 // Выделяем malloc-ом память
 // И заполняем её нулями
+
+//void ft_bzero(void *b, size_t n)
+//{
+//	ft_memset(b, 's', n);
+//}
+
 
 void *ft_calloc(size_t nmemb, size_t size)
 {
@@ -26,3 +34,11 @@ void *ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(mem, (nmemb * size));
 	return (mem);
 }
+
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		printf("%s", ft_calloc((size_t)4, (size_t)8));
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }
