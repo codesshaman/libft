@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 // Возвращаем 1, если переданный
 // Символ присутствует в ascii,
@@ -22,3 +23,18 @@ int ft_isascii(int c)
 		return (1);
 	return(0);
 }
+
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		int i = '\0';
+// 		int a = '\n';
+// 		int b = 'я';
+// 		printf("%d", ft_isascii(i));
+// 		printf("%c", '\n');
+// 		printf("%d", ft_isascii(a));
+// 		printf("%c", '\n');
+// 		printf("%d", ft_isascii(b));
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }

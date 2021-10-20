@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 // Возвращаем 1 если передан
 // Печатаемый символ,
@@ -22,3 +23,18 @@ int ft_isprint(int c)
 		return(1);
 	return (0);
 }
+
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		int i = '\0';
+// 		int a = '3';
+// 		int b = 'f';
+// 		printf("%d", ft_isprint(i));
+// 		printf("%c", '\n');
+// 		printf("%d", ft_isprint(a));
+// 		printf("%c", '\n');
+// 		printf("%d", ft_isprint(b));
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }
