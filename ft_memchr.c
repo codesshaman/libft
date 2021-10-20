@@ -10,36 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stdio.h>
-#include "ft_atoi.c"
+#include "libft.h"
+#include <stddef.h> // Для size_t
+
+//#include <stdio.h> // Для printf в main
+//#include "ft_atoi.c" // Для main
 
 // Поиск в массиве символа, код которого задан
 // Если символ найден, возвращается его адрес
 // Если после n байт не найден, возвращается NULL
 
-void	*ft_memchr(const void *str, int c, size_t n)
+void	*ft_memchr(void const *s, int c, size_t n)
 {
-	unsigned char *ptr;
-	unsigned char sym;
+	int i;
+	unsigned char	*p;
 
-	ptr = (unsigned char *)str;
-	sym = (unsigned char)c;
+	i = 0;
+	p = (unsigned char *)s;
 	while (n--)
 	{
-		if (*ptr == sym)
-			return (ptr);
-		ptr++;
+		if (p[i] == (unsigned char)c)
+			return ((void *)p);
+		i++;
 	}
-    printf("%s", ptr);
-    printf("%c", '\n');
 	return (NULL);
 }
 
-int main(int argc, char *argv[]){
-	if(argc > 0){
-		printf("%d", ft_memchr(argv[1], ft_atoi(argv[2]), (size_t)argv[3]));
-		printf("%c", '\n');
-	}
-	return (0);
-}
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		char str[8] = "abcdefgh";
+// 		printf("%d", ft_memchr(str, 104, (size_t)8));
+// 		//printf("%d", ft_memchr(argv[1], ft_atoi(argv[2]), (size_t)argv[3]));
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }
