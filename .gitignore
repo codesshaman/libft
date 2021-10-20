@@ -1,5 +1,6 @@
-launch.json
-tasks.json
+.vscode
+.vscode/launch.json
+.vscode/tasks.json
 a.exe
 a.out
 git log --pretty=format:"%h - %an, %ar : %s"
