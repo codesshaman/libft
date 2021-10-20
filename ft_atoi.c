@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
 //#include <stdio.h>
 
 // Переводим строку в число
@@ -35,11 +34,11 @@ int		ft_atoi(const char *str)
         sign = 1;
         i++;
     }
-    else if (str[i] <= '0' && str[i] >= '9')
+    else if (str[i] <= 48 && str[i] >= 57)
     {
         return (0);
     }
-    while(str[i] >= '0' && str[i] <= '9')
+    while(str[i] >= 48 && str[i] <= 57)
     {
         res = res * 10 + (str[i] - '0');
         i++;

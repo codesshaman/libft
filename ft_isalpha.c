@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 // Возвращаем 1, если передана
 // Буква, иначе возвращаем 0
@@ -20,3 +21,18 @@ int ft_isalpha(int c){
 		return (1);
 	return (0);
 }
+
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		int i = '0';
+// 		int a = 'A';
+// 		int b = 'b';
+// 		printf("%d", ft_isalpha(i));
+// 		printf("%c", '\n');
+// 		printf("%d", ft_isalpha(a));
+// 		printf("%c", '\n');
+// 		printf("%d", ft_isalpha(b));
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }
