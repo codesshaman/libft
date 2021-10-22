@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 // Сравнение двух массивов посимвольно
 // 0 если массивы идентичны
@@ -19,27 +20,31 @@
 
 int ft_memcmp(const void *arr1, const void *arr2, size_t n)
 {
+	int i;
 	unsigned char	*b1;
 	unsigned char	*b2;
 	int             arr_size;
-	size_t			i;
 
-	b1 = (unsigned char *)arr1;
-	b2 = (unsigned char *)arr2;
 	i = 0;
-	if (ft_strlen(arr1) < ft_strlen(arr2))
-		arr_size = ft_strlen(arr1);
-	if (ft_strlen(arr1) > ft_strlen(arr2))
-		arr_size = ft_strlen(arr2);
-	if (ft_strlen(arr1) == ft_strlen(arr2))
-		arr_size = ft_strlen(arr2);
-	if (n > arr_size)
-		arr_size = n;   
-	while(i < arr_size)
+	b1 = (unsigned char *)arr1;
+	b2 = (unsigned char *)arr2; 
+	while(n--)
 	{
 		if(b1[i] != b2[i])
 			return(b1[i] - b2[i]);
 		i++;
 	}
-	i++;
+	return(0);
 }
+
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		printf("%d", ft_memcmp("abcdf", "abcde", (size_t)5));
+// 		printf("%c", '\n');
+// 		printf("%d", ft_memcmp("abcde", "abcde", (size_t)5));
+// 		printf("%c", '\n');
+// 		printf("%d", ft_memcmp("abcde", "abcdf", (size_t)5));
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }

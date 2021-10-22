@@ -11,25 +11,38 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 // Копирует n бит из src в dest
 // Которые могут пересекаться
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-    size_t i;
-    unsigned char *d;
+	unsigned char *d;
 	unsigned char *s;
 
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
-	i = 0;
-	if (dest == NULL && src == NULL)
-		return (NULL);
-	while(i < n)
+	if (d < s)
+		while (len--)
+			*d++ = *s++;
+	else
 	{
-		d[i] = s[i];
-		i++;
+		d += len;
+		s += len;
+		while (len--)
+			*--d = *--s;
 	}
-	return ((char *)d);
+	return (dest);
 }
+
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		char src[7] = "src_str";
+// 		char dst[7] = "dst_str";
+// 		ft_memmove(dst, src, (size_t)3);
+// 		printf("%s", dst);
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }
