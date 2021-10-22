@@ -10,30 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 #include <stdio.h>
 #include "ft_strlen.c"
+#include "ft_memchr.c"
 
 // Поиск первого вхождения символа в строке,
+// Его ячейка памяти, если найден или
 // NULL если символ не найден
 
-char *ft_strchr(const char *str, int ch)
+char		*ft_strchr(const char *s, int ch)
 {
-	char	*ptr;
-	char	sym;
-	int		i;
-
-	i = 0;
-	ptr = (char *)str;
-	sym = (char)ch;
-	while ((ptr[i] != 0) && (ptr[i] != sym))
-		i++;
-	return ((ptr[i] == sym) ? ptr[i] : NULL);
+	return (ft_memchr(s, ch, ft_strlen(s) + 1));
 }
 
 int main(int argc, char *argv[]){
 	if(argc > 0){
-		printf("%d", ft_strchr(argv[1], argv[2]));
+		char str[] = "abcdef";
+		int th = 3;
+		int ch = 100;
+		printf("%d", ft_strchr(str, th));
+		printf("%c", '\n');
+		printf("%d", ft_strchr(str, ch));
 		printf("%c", '\n');
 	}
 	return (0);
