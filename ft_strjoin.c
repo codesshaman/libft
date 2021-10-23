@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include "ft_strlen.c"
 
 // Конкатенация двух строк
 
@@ -22,13 +24,13 @@ char *ft_strjoin(char const *s1, char const *s2)
 	char *str;
 
 	i = 0;
-	len1 = ft_strlen(*s1);
-	len2 = ft_strlen(*s2);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
 	str = NULL;
 	if((len2 == 0) && (len1 > 0))
-		return (len1);
+		return (s1);
 	if((len1 == 0) && (len2 > 0))
-		return (len2);
+		return (s2);
 	if(len1 + len2 == 0)
 		return (NULL);
 	str = malloc((len1 + len2 + 1) * sizeof(char));
@@ -42,4 +44,12 @@ char *ft_strjoin(char const *s1, char const *s2)
 		i++;
 	str[i] = '\0';
 	return (*str);
+}
+
+int main(int argc, char *argv[]){
+	if(argc > 0){
+		printf("%s", ft_strjoin(argv[1], argv[2]));
+		printf("%c", '\n');
+	}
+	return (0);
 }

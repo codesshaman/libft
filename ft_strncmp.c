@@ -11,29 +11,42 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include <stdio.h>
+// #include "ft_strlen.c"
 
 // Сравнение двух строк с ограничением
 // Количества сравниваемых символов (от
 // 0 до n), 0 если разницы нет, -1 если
 // отличный бит меньше, 1 если больше.
 
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+int		ft_strncmp(const char *arr1, const char *arr2, size_t n)
 {
-	int i;
-	int str_size;
-	
+	size_t i;
+	unsigned char	*b1;
+	unsigned char	*b2;
+	int             arr_size;
+
 	i = 0;
-	if (ft_strlen(*s1) > ft_strlen(*s2))
-		str_size = ft_strlen(*s2);
-	if (ft_strlen(*s1) < ft_strlen(*s2))
-		str_size = ft_strlen(*s1);
-	if (ft_strlen(*s1) == ft_strlen(*s2))
-		str_size = ft_strlen(*s1);
-	while ((i < str_size) || (i < n))
+	b1 = (unsigned char *)arr1;
+	b2 = (unsigned char *)arr2; 
+	while ((b1[i] || b2[i]) && i < n)
 	{
-		if (s2[i] != s1[i])
-			return (s1[i] - s2[i]);
+		if (b1[i] != b2[i])
+			return (b1[i] - b2[i]);
 		i++;
 	}
 	return (0);
 }
+
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		char dst[] = "asbdfb";
+// 		char src[] = "abcdef";
+// 		int n = ft_strncmp(dst, src, (size_t)3);
+// 		printf("%d", n);
+// 		printf("%c", '\n');
+// 		printf("%s", dst);
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }

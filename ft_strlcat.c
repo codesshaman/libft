@@ -11,29 +11,46 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include "ft_strlen.c"
+// #include <stdio.h>
 
-// Копирует из src в dest n - 1
-// Символов, устанавливая в конец
-// Строки нуль-терминант, возвращает
-// Длинну получившейся строки
+// Копирует из src в dest символы,
+// Устанавливая в конец строки
+// Нуль-терминант, возвращает
+// Длинну src + dest
 
-size_t *ft_strlcat(char *dest, const char *src, size_t n)
+size_t		*ft_strlcat(char *dest, const char *src, size_t n)
 {
-    size_t i;
-    size_t j;
+	size_t	i;
+	size_t	dst_len;
+	size_t	src_len;
 
-    j = 0;
-	i = ft_strlen(*dest);
-	if (!dest || !src)
-		return (0);
-	if(n == 0)
-		return (ft_strlen(*src));
-	while(i < (n - 1) && src[i])
+	dst_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	i = 0;
+	if (n < dst_len + 1)
+		return (n + src_len);
+	if (n >= dst_len + 1)
 	{
-		dest[i] = src[j];
-		i++;
-        j++;
+		while (src[i] && (dst_len + 1 + i) < n)
+		{
+			dest[dst_len + i] = src[i];
+			i++;
+		}
 	}
-	dest[i] = '\0';
-	return(ft_strlen(*src) + ft_strlen(*dest));
-} 
+	dest[dst_len + i] = '\0';
+	return (dst_len + src_len);
+}
+
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		char dst[] = "svdvfd";
+// 		char src[] = "abcdef";
+// 		size_t n = ft_strlcat(dst, src, (size_t)argv[1]);
+// 		printf("%d", n);
+// 		printf("%c", '\n');
+// 		printf("%s", dst);
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }
