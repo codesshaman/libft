@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//******************Part I******************//
+
 #include "libft.h"
-#include <stddef.h> // Для size_t
 
 //#include <stdio.h> // Для printf в main
 //#include "ft_atoi.c" // Для main

@@ -10,7 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//******************Part I******************//
+
 #include "libft.h"
+//#include <stdio.h>
 
 // Перевод заглавного символа в строчный
 
@@ -20,3 +23,15 @@ int ft_tolower(int c)
 		return (c + 32);
 	return (c);
 }
+
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		printf("%c", ft_tolower('S'));
+// 		printf("%c", '\n');
+// 		printf("%c", ft_tolower('A'));
+// 		printf("%c", '\n');
+// 		printf("%c", ft_tolower('Z'));
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }
