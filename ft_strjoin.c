@@ -11,45 +11,50 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include "ft_strlen.c"
+// #include <stdio.h>
+// #include "ft_strlen.c"
 
 // Конкатенация двух строк
 
-char *ft_strjoin(char const *s1, char const *s2)
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int len1;
-	int len2;
-	int i;
-	char *str;
+	int		i;
+	int		j;
+	int		len;
+	char	*res;
+	int		first;
 
+	if (!s1 || !s2)
+		return (NULL);
 	i = 0;
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	str = NULL;
-	if((len2 == 0) && (len1 > 0))
-		return (s1);
-	if((len1 == 0) && (len2 > 0))
-		return (s2);
-	if(len1 + len2 == 0)
+	j = 0;
+	first = ft_strlen(s1);
+	len = (ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!(res = malloc(sizeof(char) * (len))))
 		return (NULL);
-	str = malloc((len1 + len2 + 1) * sizeof(char));
-	if (str = NULL)
-		return (NULL);
-	while(i < len1)
-		str[i] = s1[i];
+	while (s1[i])
+	{
+		res[i] = s1[i];
 		i++;
-	while(i < len2)
-		str[i] = s2++;
+	}
+	while (s2[j])
+	{
+		res[i] = s2[j];
 		i++;
-	str[i] = '\0';
-	return (*str);
+		j++;
+	}
+	res[i] = '\0';
+	return (res);
 }
 
-int main(int argc, char *argv[]){
-	if(argc > 0){
-		printf("%s", ft_strjoin(argv[1], argv[2]));
-		printf("%c", '\n');
-	}
-	return (0);
-}
+// int main(int argc, char *argv[]){
+// 	if(argc > 0){
+// 		printf("%s", ft_strjoin("abc", "def"));
+// 		printf("%c", '\n');
+// 		printf("%s", ft_strjoin(argv[1], argv[2]));
+// 		printf("%c", '\n');
+// 	}
+// 	return (0);
+// }
