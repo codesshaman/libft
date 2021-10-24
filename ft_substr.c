@@ -11,26 +11,47 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include <stdio.h>
+// #include "ft_strlen.c"
 
 // Создаёт подстроку строки s
 // Начиная с start длинной len
 
-char *ft_substr(char const *s, unsigned int start,size_t len)
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int i;
-	int j;
-	char *sub;
-	
-	i = 0;
-	j = 0;
-	sub = NULL;
-	sub = malloc(len * sizeof(char));
-	if (sub = NULL)
+	int	i;
+	char			*sub;
+
+	if (ft_strlen(s) == 0)
 		return (NULL);
-	while(s[i] != '\0')
-		if((i >= start) && (i < len))
-			sub[j] = s[i];
-			j++;
+	if (!(sub = malloc(sizeof(char) * len + 1)))
+		return (NULL);
+	if (ft_strlen(s) < start)
+	{
+		sub = malloc(sizeof(char) * 1);
+		sub[0] = '\0';
+		return (sub);
+	}
+	if (!(sub = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		sub[i] = s[start + i];
 		i++;
-	return (*sub);
+	}
+	sub[i] = '\0';
+	return (sub);
 }
+
+// int main(void){
+// 	printf("%s", ft_substr("abcdefgkl", 0, (size_t)3));
+// 	printf("%C", '\n');
+// 	printf("%s", ft_substr("abcdefgkl", 3, (size_t)3));
+// 	printf("%C", '\n');
+// 	printf("%s", ft_substr("abcdefgkl", 6, (size_t)3));
+// 	printf("%C", '\n');
+// 	printf("%s", ft_substr("abcdefgkl", 9, (size_t)3));
+// 	return (0);
+// }
