@@ -11,101 +11,107 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 // Разбитие строки *s на
 // Массивы по символу c
 
-// Поиск начального символа
+// Отлавливаем утечки памяти
 
-int first_symbol(int const last, char *str, char const sep)
+void		*leak_hunter(char **arr, int words_len)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(str[i])
-        if ((str[i] != sep) && (i > last))
-            return (i);
-        else
-            if (str[i] == sep)
-            {
-                last = i;       // Пропускаем несколько
-                i++;            // Разделителей подряд
-            }
-    return (-1);
+	i = 0;
+	while (i < words_len)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+	return (NULL);
 }
 
-// Поиск конечного символа
+// Подсчитываем общую длинну символов
 
-int last_symbol(int const last, char *str, char const sep)
+int		sym_len(char const *str, char c)
 {
-    int i;
+	int		i;
 
-    i = 0;
-    while(str[i])
-        if (i > last)
-        {
-            if ((str[i] != sep))
-                i++
-            else
-                if (i - last > 1)
-                    return (i - 1);
-        }
-    return (-1);
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	return (i);
 }
 
-// Формируем длинну слова
+// Подсчитываем количество слов
 
-int word_length(char const *str, char const sep, int const next)
+int		words_counter(char const *str, char c)
 {
-    int i;
-    int last;
-    int first;
-    int counter;
+	int		i;
+	int		counter;
 
-    i = 0;
-    first = first_symbol(next, *str, sep);
-    last = last_symbol(next, *str, sep);
-    counter = 0;
-    while (str[i])
-        if ((i > first) && (i < last))
-            counter++;
-        i++;
-    return (counter);
+	i = 0;
+	counter = 0;
+	while (str[i])
+	{
+		if (str[i] != c && (str[i + 1] == c || str[i + 1] == '\0'))
+			counter++;
+		i++;
+	}
+	return (counter);
 }
 
-char word_maker(char const *str, char const sep)
+// Создаём слова и заполняем ими массив
+
+char		**words_maker(char const *str, char **arr, char c, int words)
 {
-    int i;
-    int length;
-    char first;
-    char *res;
-    char last;
-    
-    i = 0;
-    res = NULL;
-    while (str[i])
-    {
-        first = first_symbol(i, *str, sep);
-        length = word_length(*str, sep, first);
-        last = last_symbol(i, *str, sep);
-        i = i + last;
-        res = (char *)malloc(sizeof(char) * (length + 1))
-        if (res == NULL)
-            return (NULL);
-        
-    }
+	int		i;
+	int		j;
+	int		len;
+
+	i = 0;
+	while (i < words)
+	{
+		while (*str == c)
+			str++;
+		len = sym_len(str, c);
+		if (!(arr[i] = (char *)malloc(sizeof(char) * (len + 1))))
+			return (leak_hunter(arr, i));
+		j = 0;
+		while (j < len)
+			arr[i][j++] = *str++;
+		arr[i][j] = '\0';
+		i++;
+	}
+	arr[i] = NULL;
+	return (arr);
 }
 
-char **ft_split(char const *s, char c)
+char			**ft_split(char	const *s, char c)
 {
-    int i;
-    int sep;
-    
-    i = 0;
-    sep = 0;
-    while (s[i] != '\0')
-        sep = is_separator(i, *s, c);
-        if (sep != 0)
-            make_word(i, sep, *s);
-            i = sep;
+	char	**arr;
+	int		words;
+
+	if (!s || !c)
+		return (NULL);
+	words = words_counter(s, c);
+	if (!(arr = (char **)malloc(sizeof(char *) * (words + 1))))
+		return (NULL);
+	return (words_maker(s, arr, c, words));
 }
+
+// int				main(void)
+// {
+// 	char	**arr;
+// 	unsigned int	i;
+
+// 	i = 0;
+// 	arr = ft_split("      Hello World lorem ipsum dolar has ammet foo bar   baz ", ' ');
+// 	while (arr[i] != NULL)
+// 	{
+// 		printf("%s", arr[i]);
+//         printf("%c", '\n');
+// 		i++;
+// 	}
+// }
