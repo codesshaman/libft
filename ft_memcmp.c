@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:52:21 by jleslee           #+#    #+#             */
-/*   Updated: 2021/10/14 20:13:07 by jleslee          ###   ########.fr       */
+/*   Updated: 2021/10/26 21:17:08 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int ft_memcmp(const void *arr1, const void *arr2, size_t n)
 	int i;
 	unsigned char	*b1;
 	unsigned char	*b2;
-	int             arr_size;
 
 	i = 0;
 	b1 = (unsigned char *)arr1;
