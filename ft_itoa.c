@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:17:43 by jleslee           #+#    #+#             */
-/*   Updated: 2021/10/26 12:18:09 by jleslee          ###   ########.fr       */
+/*   Updated: 2021/10/26 21:11:48 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_itoa(int n)
     int		i;
 	char	*str;
 
-    if (n > 2147483647 || n < -2147483648)
+    if (n > 2147483647 || n < -2147483647)
         return(NULL);
     str = NULL;
 	i = num_len(n);
@@ -79,6 +79,10 @@ char	*ft_itoa(int n)
 //     printf("%s", ft_itoa(68));
 //     printf("%c", '\n');
 //     printf("%s", ft_itoa(-68));
+//     printf("%c", '\n');
+// 	printf("%s", ft_itoa(2147483647));
+//     printf("%c", '\n');
+//     printf("%s", ft_itoa(-2147483647));
 //     printf("%c", '\n');
 //     return (0);
 // }
