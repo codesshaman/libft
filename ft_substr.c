@@ -6,11 +6,13 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:54:17 by jleslee           #+#    #+#             */
-/*   Updated: 2021/10/25 23:28:42 by jleslee          ###   ########.fr       */
+/*   Updated: 2021/10/26 12:26:51 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //******************Part II******************//
+
+// Возвращает часть строки s длинной len с start
 
 #include "libft.h"
 // #include <stdio.h>
@@ -49,11 +51,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 // int main(void){
 // 	printf("%s", ft_substr("abcdefgkl", 0, (size_t)3));
-// 	printf("%C", '\n');
+// 	printf("%c", '\n');
 // 	printf("%s", ft_substr("abcdefgkl", 3, (size_t)3));
-// 	printf("%C", '\n');
+// 	printf("%c", '\n');
 // 	printf("%s", ft_substr("abcdefgkl", 6, (size_t)3));
-// 	printf("%C", '\n');
+// 	printf("%c", '\n');
 // 	printf("%s", ft_substr("abcdefgkl", 9, (size_t)3));
 // 	return (0);
 // }
