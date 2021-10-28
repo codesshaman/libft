@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 11:11:29 by jleslee           #+#    #+#             */
-/*   Updated: 2021/10/15 20:12:49 by jleslee          ###   ########.fr       */
+/*   Updated: 2021/10/27 21:25:55 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 // Нуль-терминант, возвращает
 // Длинну src + dest
 
-size_t		*ft_strlcat(char *dest, const char *src, size_t n)
+size_t		ft_strlcat(char *dest, const char *src, size_t n)
 {
 	size_t	i;
 	size_t	dst_len;

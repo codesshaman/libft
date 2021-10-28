@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:16:56 by jleslee           #+#    #+#             */
-/*   Updated: 2021/10/15 21:03:30 by jleslee          ###   ########.fr       */
+/*   Updated: 2021/10/28 12:44:41 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 // Его ячейка памяти, если найден или
 // NULL если символ не найден
 
-char		*ft_strchr(const char *s, int ch)
+char		*ft_strchr(const char *str, int ch)
 {
-	return (ft_memchr(s, ch, ft_strlen(s) + 1));
+	return (ft_memchr(str, ch, ft_strlen(str) + 1));
 }
 
 // int main(int argc, char *argv[]){

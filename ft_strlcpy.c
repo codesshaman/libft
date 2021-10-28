@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 09:03:32 by jleslee           #+#    #+#             */
-/*   Updated: 2021/10/15 19:25:25 by jleslee          ###   ########.fr       */
+/*   Updated: 2021/10/27 21:28:39 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t		*ft_strlcpy(char *dest, const char *src, size_t n)
 
 	src_len = ft_strlen(src);
 	if (n == 0)
-		return (src_len);
+		return ((size_t *)src_len);
 	i = 0;
 	while (src[i] && i < (n - 1))
 	{
@@ -36,7 +36,7 @@ size_t		*ft_strlcpy(char *dest, const char *src, size_t n)
 		i++;
 	}
 	dest[i] = '\0';
-	return (i);
+	return ((size_t *)i);
 }
 
 // int main(int argc, char *argv[]){

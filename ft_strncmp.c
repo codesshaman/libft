@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 22:38:21 by jleslee           #+#    #+#             */
-/*   Updated: 2021/10/14 20:53:33 by jleslee          ###   ########.fr       */
+/*   Updated: 2021/10/27 21:29:11 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		ft_strncmp(const char *arr1, const char *arr2, size_t n)
 	size_t i;
 	unsigned char	*b1;
 	unsigned char	*b2;
-	int             arr_size;
 
 	i = 0;
 	b1 = (unsigned char *)arr1;
