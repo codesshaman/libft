@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 12:07:26 by jleslee           #+#    #+#             */
-/*   Updated: 2021/10/26 13:15:51 by jleslee          ###   ########.fr       */
+/*   Updated: 2021/10/27 16:53:48 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list		*ft_lstnew(void *content)
 {
 	t_list	*list;
 
-	if(!(list = (t_list *)malloc(sizeof(t_list))));
+	if(!(list = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
 	list->content = content;
 	list->next = NULL;

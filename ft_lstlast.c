@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 13:08:08 by jleslee           #+#    #+#             */
-/*   Updated: 2021/10/26 13:46:28 by jleslee          ###   ########.fr       */
+/*   Updated: 2021/10/27 16:51:44 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 // Возвращает последний элемент списка
 
-int		ft_lstlast(t_list *lst)
+t_list		*ft_lstlast(t_list *lst)
 {
 	if (lst == NULL)
 		return (NULL);
