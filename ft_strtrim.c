@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 15:50:52 by jleslee           #+#    #+#             */
-/*   Updated: 2021/10/25 23:30:50 by jleslee          ###   ########.fr       */
+/*   Updated: 2021/10/28 13:30:07 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // #include <stdio.h>
 // #include "ft_strlen.c"
 // #include "ft_strlcpy.c"
+// #include "ft_strdup.c"
 
 // Обрезка строки s1, если в начале и
 // В конце строки встречаются символы
@@ -35,39 +36,44 @@ int set_check(char const sym, char const *set)
 	return (0);
 }
 
-char last_symbol(char const *str, char const *set)
+int fitst_symbol(char const *str, char const *set)
+{
+	int i;
+	
+	i = 0;
+	while (i != '\0' && (set_check(str[i], set) == 1))
+		i++;
+	return (i);
+}
+
+int last_symbol(char const *str, char const *set)
 {
 	int 	i;
 
 	i = (ft_strlen(str) - 1);
 	while (i >= 0 && (set_check(str[i], set) == 1))
 		i--;
-	return ((char *)&str[i]);
+	return (i);
 }
 
 char				*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		size;
-	char	*first;
-	char	*last;
-	char	*outstr;
+	char	*res;
+	int		first;
+	int		last;
 
-	i = 0;
-	if (!s1 || !set)
+	if (s1 == NULL)
 		return (NULL);
-	while (s1[i] && (set_check(s1[i], set) == 1))
-		i++;
-	first = (char *)&s1[i];
+	if (set == NULL)
+		return (ft_strdup(s1));
+	first = fitst_symbol(s1, set);
 	last = last_symbol(s1, set);
-	if (!*s1 || last == first)
-		size = 2;
-	else
-		size = last - first + 2;
-	if (!(outstr = malloc(sizeof(char) * size)))
+	if (first >= last)
 		return (NULL);
-	ft_strlcpy(outstr, first, size);
-	return (outstr);
+	if(!(res = (char *)malloc(sizeof(char) * (last - first + 1))))
+		return (NULL);
+	ft_strlcpy(res, s1 + first, last - first + 1);
+	return (res);
 }
 
 // int main(int argc, char *argv[]){

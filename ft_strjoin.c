@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 15:05:20 by jleslee           #+#    #+#             */
-/*   Updated: 2021/10/25 23:29:09 by jleslee          ###   ########.fr       */
+/*   Updated: 2021/10/27 17:01:54 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		j;
 	int		len;
 	char	*res;
-	int		first;
 
 	if (!s1 || !s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	first = ft_strlen(s1);
 	len = (ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!(res = malloc(sizeof(char) * (len))))
 		return (NULL);
