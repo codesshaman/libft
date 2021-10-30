@@ -6,7 +6,7 @@
 #    By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 20:50:40 by jleslee           #+#    #+#              #
-#    Updated: 2021/10/29 12:13:36 by jleslee          ###   ########.fr        #
+#    Updated: 2021/10/30 16:44:36 by jleslee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,6 @@ OBJS = ${SRCS:.c=.o} ${BONUS:.c=.o}
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
-
-bonus: $(BOBJS)
-	$(AR) $(NAME) $^
 
 all:	${NAME}
 
