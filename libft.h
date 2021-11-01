@@ -25,7 +25,7 @@
 #  define OPEN_MAX 32
 # endif
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -55,7 +55,7 @@ int			ft_atoi(const char *str);
 
 void		*ft_calloc(size_t nmemb, size_t size);
 char		*ft_strdup(const char *str);
-char		*ft_striteri(char *s, void (*f)(unsigned int,char*));
+char		*ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
