@@ -13,14 +13,14 @@
 //******************Part II******************//
 
 #include "libft.h"
-//#include <stdio.h>
+#include <stdio.h>
 
 // Разбитие строки *s на
 // Массивы по символу c
 
 // Отлавливаем утечки памяти
 
-void		*leak_hunter(char **arr, int words_len)
+void	*leak_hunter(char **arr, int words_len)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ void		*leak_hunter(char **arr, int words_len)
 
 // Подсчитываем общую длинну символов
 
-int		sym_len(char const *str, char c)
+int	sym_len(char const *str, char c)
 {
 	int		i;
 
@@ -48,7 +48,7 @@ int		sym_len(char const *str, char c)
 
 // Подсчитываем количество слов
 
-int		words_counter(char const *str, char c)
+int	words_counter(char const *str, char c)
 {
 	int		i;
 	int		counter;
@@ -57,7 +57,7 @@ int		words_counter(char const *str, char c)
 	counter = 0;
 	while (str[i])
 	{
-		if (str[i] != c && (str[i + 1] == c || str[i + 1] == '\0'))
+		if (str[i] != c && (str[i + 1] == c || !(str[i + 1])))
 			counter++;
 		i++;
 	}
@@ -66,19 +66,23 @@ int		words_counter(char const *str, char c)
 
 // Создаём слова и заполняем ими массив
 
-char		**words_maker(char const *str, char **arr, char c, int words)
+char	**words_maker(char const *str, char **arr, char c, int words)
 {
 	int		i;
 	int		j;
 	int		len;
 
 	i = 0;
+	if (words == 0)
+		return (NULL);
 	while (i < words)
 	{
 		while (*str == c)
 			str++;
 		len = sym_len(str, c);
-		if (!(arr[i] = (char *)malloc(sizeof(char) * (len + 1))))
+		arr[i] = NULL;
+		arr[i] = (char *)malloc(sizeof(char) * (len + 1));
+		if (arr[i] == NULL)
 			return (leak_hunter(arr, i));
 		j = 0;
 		while (j < len)
@@ -90,7 +94,7 @@ char		**words_maker(char const *str, char **arr, char c, int words)
 	return (arr);
 }
 
-char			**ft_split(char	const *s, char c)
+char	**ft_split(char	const *s, char c)
 {
 	char	**arr;
 	int		words;
@@ -98,22 +102,36 @@ char			**ft_split(char	const *s, char c)
 	if (!s || !c)
 		return (NULL);
 	words = words_counter(s, c);
-	if (!(arr = (char **)malloc(sizeof(char *) * (words + 1))))
+	if (words == 0)
+		return (NULL);
+	arr = NULL;
+	arr = (char **)malloc(sizeof(char *) * (words + 1));
+	if (arr == NULL)
 		return (NULL);
 	return (words_maker(s, arr, c, words));
 }
 
-// int				main(void)
-// {
-// 	char	**arr;
-// 	unsigned int	i;
+int				main(void)
+{
+	char	**arr;
+	unsigned int	i;
 
-// 	i = 0;
-// 	arr = ft_split("      Hello World lorem ipsum dolar has ammet foo bar   baz ", ' ');
-// 	while (arr[i] != NULL)
-// 	{
-// 		printf("%s", arr[i]);
-//         printf("%c", '\n');
-// 		i++;
-// 	}
-// }
+	i = 0;
+	arr = ft_split("  Hello foo bar   baz ", ' ');
+	while (arr[i] != NULL)
+	{
+		printf("%s", arr[i]);
+        printf("%c", '\n');
+		i++;
+	}
+	i = 0;
+	arr = ft_split("\0aa\0bbb", '\0');
+	if (arr == 0)
+		printf("%s\n", "null");
+	while (arr[i] != NULL)
+	{
+		printf("%s", arr[i]);
+        printf("%c", '\n');
+		i++;
+	}
+}
