@@ -19,14 +19,14 @@
 // char - символ для заполнения, 
 // n - кол-во заполняемых ячеек
 
-void *ft_memset(void *dest, int ch, size_t n)
+void	*ft_memset(void *dest, int ch, size_t n)
 {
-	size_t i;
-	char *arr;
+	size_t	i;
+	char	*arr;
 
 	i = 0;
 	arr = (char *)dest;
-	while(i < n)
+	while (i < n)
 	{
 		arr[i] = ch;
 		i++;

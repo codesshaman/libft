@@ -14,13 +14,22 @@
 
 #include "libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
-{
-    t_list	*last;
+// Добавляет элемент к концу списка
 
-	if (lst == NULL || new == NULL)
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last;
+
+	if (!lst)
 		return ;
-	last = ft_lstlast(*lst);
-	new->next = last->next;
+	last = *lst;
+	if (!last)
+	{
+		*lst = new;
+		return ;
+	}
+	while (last->next)
+		last = last->next;
 	last->next = new;
 }

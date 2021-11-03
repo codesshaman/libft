@@ -17,9 +17,9 @@
 // Удаляет всю цепочку списка, освобождает память
 // И ставит в NULL значение указателя на список
 
-void ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-    t_list	*elem;
+	t_list	*elem;
 	t_list	*next;
 
 	elem = *lst;

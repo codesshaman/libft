@@ -24,8 +24,7 @@
 //	ft_memset(b, 's', n);
 //}
 
-
-void *ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*mem;
 

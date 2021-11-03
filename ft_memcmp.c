@@ -20,22 +20,22 @@
 // 1 если первый отличный бит больше,
 // -1 если первый отличный бит меньше
 
-int ft_memcmp(const void *arr1, const void *arr2, size_t n)
+int	ft_memcmp(const void *arr1, const void *arr2, size_t n)
 {
-	int i;
+	int				i;
 	unsigned char	*b1;
 	unsigned char	*b2;
 
 	i = 0;
 	b1 = (unsigned char *)arr1;
-	b2 = (unsigned char *)arr2; 
-	while(n--)
+	b2 = (unsigned char *)arr2;
+	while (n--)
 	{
-		if(b1[i] != b2[i])
-			return(b1[i] - b2[i]);
+		if (b1[i] != b2[i])
+			return (b1[i] - b2[i]);
 		i++;
 	}
-	return(0);
+	return (0);
 }
 
 // int main(int argc, char *argv[]){

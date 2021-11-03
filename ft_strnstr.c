@@ -21,7 +21,7 @@
 // Строки little внутри строки big или
 // Возвращает NULL при остутствии строки
 
-char		*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	lit_len;
 	size_t	big_len;

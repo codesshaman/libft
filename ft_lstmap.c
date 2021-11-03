@@ -20,9 +20,9 @@
 // Если не удаётся создать новый список, его элементы
 // Очищаются при помощи функции del и free (ft_lstclear)
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-    t_list	*res;
+	t_list	*res;
 	t_list	*elem;
 
 	if (lst == NULL || f == NULL)

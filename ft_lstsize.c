@@ -16,9 +16,9 @@
 
 // Подсчёт всех элементов списка (длинны списка)
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-    int	i;
+	int	i;
 
 	i = 0;
 	while (lst != NULL)

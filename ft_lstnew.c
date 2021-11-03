@@ -16,16 +16,20 @@
 
 // Создаёт новый список
 
-t_list		*ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*list;
 
-	if(!(list = (t_list *)malloc(sizeof(t_list))))
+	list = NULL;
+	list = (t_list *)malloc(sizeof(t_list));
+	if (list == NULL)
 		return (NULL);
 	list->content = content;
 	list->next = NULL;
 	return (list);
 }
 
-    // list->content = content; - создаём элемент content со значением content
-	// list->next = NULL;       - обнуляем следующий элемент для удобства перечисления (while(lst->next != NULL))
+// list->content = content; - создаём 
+// элемент content со значением content
+// list->next = NULL; - обнуляем следующий 
+//элемент для удобства перечисления (while(lst->next != NULL))

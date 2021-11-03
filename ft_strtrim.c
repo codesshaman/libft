@@ -22,11 +22,13 @@
 // В конце строки встречаются символы
 // Из набора set
 
-int set_check(char const sym, char const *set)
+int	set_check(char const sym, char const *set)
 {
-	int i;
+	int	i;
 
 	i = 0;
+	if (!sym || !set)
+		return (0);
 	while (set[i] != '\0')
 	{
 		if (set[i] == sym)
@@ -36,44 +38,29 @@ int set_check(char const sym, char const *set)
 	return (0);
 }
 
-int fitst_symbol(char const *str, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int i;
-	
+	char	*str;
+	size_t	i;
+	size_t	j;
+	size_t	end;
+
 	i = 0;
-	while (i != '\0' && (set_check(str[i], set) == 1))
+	j = 0;
+	if (!s1 || !set)
+		return (NULL);
+	while (s1[i] && set_check(s1[i], set))
 		i++;
-	return (i);
-}
-
-int last_symbol(char const *str, char const *set)
-{
-	int 	i;
-
-	i = (ft_strlen(str) - 1);
-	while (i >= 0 && (set_check(str[i], set) == 1))
-		i--;
-	return (i);
-}
-
-char				*ft_strtrim(char const *s1, char const *set)
-{
-	char	*res;
-	int		first;
-	int		last;
-
-	if (s1 == NULL)
+	end = ft_strlen(s1);
+	while (end > i && set_check(s1[end - 1], set))
+		end--;
+	str = (char *)malloc(sizeof(*s1) * (end - i + 1));
+	if (!str)
 		return (NULL);
-	if (set == NULL)
-		return (ft_strdup(s1));
-	first = fitst_symbol(s1, set);
-	last = last_symbol(s1, set);
-	if (first >= last)
-		return (NULL);
-	if(!(res = (char *)malloc(sizeof(char) * (last - first + 1))))
-		return (NULL);
-	ft_strlcpy(res, s1 + first, last - first + 1);
-	return (res);
+	while (i < end)
+		str[j++] = s1[i++];
+	str[j] = 0;
+	return (str);
 }
 
 // int main(int argc, char *argv[]){

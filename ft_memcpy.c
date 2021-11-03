@@ -17,7 +17,7 @@
 
 // Копирует n бит из src в dest
 
-void				*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*new_dest;
 	unsigned char	*new_src;

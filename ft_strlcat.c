@@ -21,7 +21,7 @@
 // Нуль-терминант, возвращает
 // Длинну src + dest
 
-size_t		ft_strlcat(char *dest, const char *src, size_t n)
+size_t	ft_strlcat(char *dest, const char *src, size_t n)
 {
 	size_t	i;
 	size_t	dst_len;

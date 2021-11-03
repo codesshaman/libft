@@ -13,7 +13,7 @@
 //******************Part II******************//
 
 #include "libft.h"
-#include <stdio.h>
+// #include <stdio.h>
 
 // Разбитие строки *s на
 // Массивы по символу c
@@ -25,10 +25,13 @@ void	*leak_hunter(char **arr, int words_len)
 	int	i;
 
 	i = 0;
-	while (i < words_len)
+	if (words_len > 0)
 	{
-		free(arr[i]);
-		i++;
+		while (i < words_len)
+		{
+			free(arr[i]);
+			i++;
+		}
 	}
 	free(arr);
 	return (NULL);
@@ -53,6 +56,8 @@ int	words_counter(char const *str, char c)
 	int		i;
 	int		counter;
 
+	if (!str)
+		return (0);
 	i = 0;
 	counter = 0;
 	while (str[i])
@@ -73,8 +78,6 @@ char	**words_maker(char const *str, char **arr, char c, int words)
 	int		len;
 
 	i = 0;
-	if (words == 0)
-		return (NULL);
 	while (i < words)
 	{
 		while (*str == c)
@@ -99,11 +102,12 @@ char	**ft_split(char	const *s, char c)
 	char	**arr;
 	int		words;
 
-	if (!s || !c)
+	if (!s && !c)
 		return (NULL);
+	words = 0;
+	if (c == '\0' && !s)
+		return (0);
 	words = words_counter(s, c);
-	if (words == 0)
-		return (NULL);
 	arr = NULL;
 	arr = (char **)malloc(sizeof(char *) * (words + 1));
 	if (arr == NULL)
@@ -111,27 +115,27 @@ char	**ft_split(char	const *s, char c)
 	return (words_maker(s, arr, c, words));
 }
 
-int				main(void)
-{
-	char	**arr;
-	unsigned int	i;
+// int				main(void)
+// {
+// 	char	**arr;
+// 	unsigned int	i;
 
-	i = 0;
-	arr = ft_split("  Hello foo bar   baz ", ' ');
-	while (arr[i] != NULL)
-	{
-		printf("%s", arr[i]);
-        printf("%c", '\n');
-		i++;
-	}
-	i = 0;
-	arr = ft_split("\0aa\0bbb", '\0');
-	if (arr == 0)
-		printf("%s\n", "null");
-	while (arr[i] != NULL)
-	{
-		printf("%s", arr[i]);
-        printf("%c", '\n');
-		i++;
-	}
-}
+// 	i = 0;
+// 	arr = ft_split("  Hello foo bar   baz ", ' ');
+// 	while (arr[i] != NULL)
+// 	{
+// 		printf("%s", arr[i]);
+//         printf("%c", '\n');
+// 		i++;
+// 	}
+// 	i = 0;
+// 	arr = ft_split("\0aa\0bbb", '\0');
+// 	if (arr == 0)
+// 		printf("%s\n", "null");
+// 	while (arr[i] != NULL)
+// 	{
+// 		printf("%s", arr[i]);
+//         printf("%c", '\n');
+// 		i++;
+// 	}
+// }

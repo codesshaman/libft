@@ -23,16 +23,15 @@
 
 char	*ft_strdup(const char *str)
 {
-	size_t n;
-	char *res;
-	
+	size_t	n;
+	char	*res;
+
 	n = (size_t)(ft_strlen(str) + 1);
 	res = NULL;
 	res = (char *)malloc(n);
 	if (res == NULL)
 		return (0);
 	ft_memcpy(res, str, n);
-	//free (res);
 	return (res);
 }
 

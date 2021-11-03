@@ -19,11 +19,11 @@
 // Символ присутствует в ascii,
 // Иначе возвращаем 0.
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);
-	return(0);
+	return (0);
 }
 
 // int main(int argc, char *argv[]){

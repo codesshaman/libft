@@ -29,22 +29,24 @@
 // 	return (i);
 // }
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    int i;
-    char *res;
+	int		i;
+	char	*res;
 
-    i = 0;
-    if (!s || !f)
-        return (NULL);
-    if (!(res = ft_strdup(s)))        
+	i = 0;
+	if (!s || !f)
 		return (NULL);
-    while (res[i])
+	res = NULL;
+	res = ft_strdup(s);
+	if (res == NULL)
+		return (NULL);
+	while (res[i])
 	{
 		res[i] = f(i, res[i]);
 		i++;
 	}
-    return (res);
+	return (res);
 }
 
 // int main(void){

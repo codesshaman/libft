@@ -12,8 +12,6 @@
 
 //******************Part II******************//
 
-// Возвращает часть строки s длинной len с start
-
 #include "libft.h"
 // #include <stdio.h>
 // #include "ft_strlen.c"
@@ -21,33 +19,23 @@
 // Создаёт подстроку строки s
 // Начиная с start длинной len
 
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	i;
-	unsigned int	strlen;
-	char			*sub;
+	size_t	size;
+	char	*sub;
 
-	strlen = ft_strlen(s);
-	if (strlen == 0)
+	if (s == NULL)
 		return (NULL);
-	if (!(sub = malloc(sizeof(char) * len + 1)))
+	if ((unsigned int)ft_strlen(s) < start)
+		return (ft_strdup(""));
+	size = ft_strlen(s + start);
+	if (size < len)
+		len = size;
+	sub = NULL;
+	sub = (char *)malloc(sizeof(char) * (len + 1));
+	if (sub == NULL)
 		return (NULL);
-	if (strlen < start)
-	{
-		sub = malloc(sizeof(char) * 1);
-		sub[0] = '\0';
-		return (sub);
-	}
-	if (!(sub = malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		sub[i] = s[start + i];
-		i++;
-	}
-	sub[i] = '\0';
+	ft_strlcpy(sub, s + start, len + 1);
 	return (sub);
 }
 

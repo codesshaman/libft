@@ -20,7 +20,7 @@
 // *dest - указатель на массив
 // s - количество заполняемых ячеек
 
-void ft_bzero(void *b, size_t n)
+void	ft_bzero(void *b, size_t n)
 {
 	ft_memset(b, 0, n);
 }

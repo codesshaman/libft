@@ -23,29 +23,25 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
-	int		j;
 	int		len;
 	char	*res;
 
-	if (!s1 || !s2)
-		return (NULL);
 	i = 0;
-	j = 0;
-	len = (ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!(res = malloc(sizeof(char) * (len))))
-		return (NULL);
-	while (s1[i])
+	res = NULL;
+	if (s1 && s2)
 	{
-		res[i] = s1[i];
-		i++;
+		len = (ft_strlen(s1) + ft_strlen(s2) + 1);
+		res = malloc(sizeof(char) * (len));
+		if (res == NULL || len == 1)
+			return (NULL);
+		while (s1[i])
+		{
+			res[i] = s1[i];
+			i++;
+		}
+		res[i] = '\0';
+		ft_strlcat(res, s2, len);
 	}
-	while (s2[j])
-	{
-		res[i] = s2[j];
-		i++;
-		j++;
-	}
-	res[i] = '\0';
 	return (res);
 }
 

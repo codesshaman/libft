@@ -21,15 +21,15 @@
 // 0 до n), 0 если разницы нет, -1 если
 // отличный бит меньше, 1 если больше.
 
-int		ft_strncmp(const char *arr1, const char *arr2, size_t n)
+int	ft_strncmp(const char *arr1, const char *arr2, size_t n)
 {
-	size_t i;
+	size_t			i;
 	unsigned char	*b1;
 	unsigned char	*b2;
 
 	i = 0;
 	b1 = (unsigned char *)arr1;
-	b2 = (unsigned char *)arr2; 
+	b2 = (unsigned char *)arr2;
 	while ((b1[i] || b2[i]) && i < n)
 	{
 		if (b1[i] != b2[i])

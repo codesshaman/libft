@@ -21,7 +21,7 @@
 // Его ячейка памяти, если найден или
 // NULL если символ не найден
 
-char		*ft_strchr(const char *str, int ch)
+char	*ft_strchr(const char *str, int ch)
 {
 	return (ft_memchr(str, ch, ft_strlen(str) + 1));
 }

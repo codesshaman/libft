@@ -21,21 +21,27 @@
 // Строки нуль-терминант, возвращает
 // Длинну получившейся строки
 
-size_t		*ft_strlcpy(char *dest, const char *src, size_t n)
+size_t	*ft_strlcpy(char *dest, const char *src, size_t n)
 {
 	size_t	i;
 	size_t	src_len;
 
 	src_len = ft_strlen(src);
+	if (!src || !dest)
+        return (0);
 	if (n == 0)
 		return ((size_t *)src_len);
 	i = 0;
-	while (src[i] && i < (n - 1))
+	dest[i] = '\0';
+	while (src[i])
 	{
-		dest[i] = src[i];
+		if (i < (n - 1))
+		{
+			dest[i + 1] = '\0';
+			dest[i] = src[i];
+		}
 		i++;
 	}
-	dest[i] = '\0';
 	return ((size_t *)i);
 }
 

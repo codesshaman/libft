@@ -14,9 +14,9 @@
 
 #include "libft.h"
 
-// Добавляем новый элемент в список
+// Добавляет новый элемент в начало списка
 
-void ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (lst == NULL || new == NULL)
 		return ;
