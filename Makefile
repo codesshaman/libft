@@ -29,25 +29,32 @@ ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c
 BONUS = ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c ft_lstsize.c \
 ft_lstlast.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c 
 
+OBJS			= $(SRCS:.c=.o)
 
-OBJS = ${SRCS:.c=.o} ${BONUS:.c=.o}
+BOBJS		= $(BONUS:.c=.o)
 
-.c.o: $(SRCS) $(BONUS)
-	$(CC) $(CFLAGS) -c -o $@ $<
+NAME			= libft.a
 
-$(NAME): $(OBJS)
-	$(AR) $@ $^
+all:			$(NAME)
 
+<<<<<<< HEAD
+$(NAME):		$(OBJS)
+				$(AR) $(NAME) $(OBJS)
+=======
 bonus: 
 
 all:	${NAME}
+>>>>>>> 11a26df94e3a4d3180922938349e2c0cee83d5b3
 
 clean:
-		${RM} ${OBJS} ${BOBJS}
+				$(RM) $(OBJS) $(BOBJS)
 
-fclean:	clean
-		${RM} ${NAME}
+fclean:			clean
+				$(RM) $(NAME)
 
-re:		fclean all
+re:				fclean $(NAME)
 
-.PHONY : all clean fclean re
+bonus:			$(OBJS) $(BOBJS)
+				$(AR) $(NAME) $(OBJS) $(BOBJS)
+
+.PHONY:			all clean fclean re
