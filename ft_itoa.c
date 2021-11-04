@@ -15,7 +15,7 @@
 // Переводит int в ascii (число в строку)
 
 #include "libft.h"
-// #include <stdio.h>
+//#include <stdio.h>
 
 int	num_len(long int num)
 {
@@ -68,7 +68,7 @@ char	*ft_itoa(int n)
 	str = NULL;
 	i = num_len(n);
 	if (n == 0)
-		str = (char *)malloc(1);
+		str = (char *)malloc(2);
 	else
 		str = (char *)malloc(num_len(n) + 1);
 	if (str == NULL)

@@ -18,29 +18,6 @@
 
 // Переводим строку в число
 
-// int	atoi_flag(char c)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (c == '-')
-// 	{
-// 		i = i - 1;
-// 		return (i);
-// 	}
-// 	else if (c == '+')
-// 	{
-// 		i = i + 1;
-// 		return (i);
-// 	}
-// 	else if (c <= 48 && c >= 57)
-// 	{
-// 		return (i);
-// 	}
-// 	i = i + 1;
-// 	return (i);
-// }
-
 int	ft_atoi(const char *str)
 {
 	int			i;
@@ -50,7 +27,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	res = 0;
 	flag = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v' ||
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v' || \
 	str[i] == '\f' || str[i] == '\n' || str[i] == '\r')
 		i++;
 	if (str[i] == '-')
@@ -60,7 +37,6 @@ int	ft_atoi(const char *str)
 	while (str[i] && str[i] >= 48 && str[i] <= 57)
 	{
 		res = res * 10 + (str[i] - '0');
-		
 		i++;
 	}
 	return (res * flag);

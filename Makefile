@@ -38,6 +38,8 @@ OBJS = ${SRCS:.c=.o} ${BONUS:.c=.o}
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
+bonus: 
+
 all:	${NAME}
 
 clean:

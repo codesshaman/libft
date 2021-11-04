@@ -20,41 +20,17 @@
 // Поиск последнего вхождения символа
 // Код которого указан в ch
 
-// char	*ft_strrchr(const char *str, int c)
-// {
-// 	char	*ptr;
-// 	char	*ret;
-
-// 	ret = (void *)0;
-// 	ptr = (char *)str;
-// 	if (c == 0)
-// 		return (NULL);
-// 	if (!str)
-// 		return (NULL);
-// 	if (c == 0 && ft_strlen(str) > 0)
-// 		return ((char *)str + ft_strlen(str));
-// 	while (*ptr)
-// 	{
-// 		ptr = ft_memchr(ptr, c, ft_strlen(ptr) + 1);
-// 		if (!ptr)
-// 			return (ret);
-// 		ret = ptr;
-// 		ptr++;
-// 	}
-// 	if (ret)
-// 		return (ret);
-// 	return ((void *)0);
-// }
-
 char	*ft_strrchr(const char *str, int c)
 {
-	int i;
+	int	i;
 
 	i = ft_strlen(str);
+	if (ft_isascii((char)c) == 0)
+		return (NULL);
 	while (i >= 0)
 	{
-		if (str[i] == c)
-			return ((char*)&str[i]);
+		if (str[i] == (char)c)
+			return ((char *)&str[i]);
 		i--;
 	}
 	return (0);
