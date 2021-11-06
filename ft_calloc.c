@@ -19,11 +19,6 @@
 // Выделяем malloc-ом память
 // И заполняем её нулями
 
-//void ft_bzero(void *b, size_t n)
-//{
-//	ft_memset(b, 's', n);
-//}
-
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*mem;

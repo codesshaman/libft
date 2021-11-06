@@ -19,16 +19,6 @@
 // #include "ft_strlen.c"
 // #include "ft_strdup.c"
 
-// int     mapi_toupper(int i, char c)
-// {
-//     char buff;
-
-//     buff = c;
-// 	if (i > 96 && i < 123)
-// 		return (i - 32);
-// 	return (i);
-// }
-
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	int		i;
