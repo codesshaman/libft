@@ -37,14 +37,12 @@ NAME			= libft.a
 
 all:			$(NAME)
 
-<<<<<<< HEAD
 $(NAME):		$(OBJS)
 				$(AR) $(NAME) $(OBJS)
-=======
+
 bonus: 
 
 all:	${NAME}
->>>>>>> 11a26df94e3a4d3180922938349e2c0cee83d5b3
 
 clean:
 				$(RM) $(OBJS) $(BOBJS)
