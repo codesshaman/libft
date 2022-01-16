@@ -15,69 +15,58 @@
 // Переводит int в ascii (число в строку)
 
 #include "libft.h"
-//#include <stdio.h>
 
-int	num_len(long int num)
+static int	ft_itoa_size(long nbr)
 {
-	int	i;
+	int		size;
 
-	i = 0;
-	if (num < 0)
+	size = 1;
+	if (nbr < 0)
+		size++;
+	while (nbr / 10 != 0)
 	{
-		num = num * -1;
-		i++;
+		nbr /= 10;
+		size++;
 	}
-	if (num == 0)
-		return (1);
-	while (num > 0)
-	{
-		num = num / 10;
-		i++;
-	}
-	return (i);
+	return (size);
 }
 
-void	new_string(char *str, long int n)
+static void	ft_itoa_fill(char *sptr, int *index, long nbr)
 {
-	int	flag;
-	int	len;
-
-	flag = 1;
-	len = num_len(n);
-	if (n < 0)
+	if (nbr >= 10)
 	{
-		n = n * -1;
-		flag = flag * -1;
+		ft_itoa_fill(sptr, index, nbr / 10);
+		ft_itoa_fill(sptr, index, nbr % 10);
 	}
-	while (len--)
+	else
 	{
-		str[len] = n % 10 + '0';
-		n = n / 10;
+		sptr[*index] = nbr + '0';
+		(*index)++;
 	}
-	if (flag == -1 && !++len)
-		str[len] = '-';
 }
 
 char	*ft_itoa(int n)
 {
-	int		i;
-	char	*str;
+	char	*sptr;
+	int		index;
+	long	nbr;
 
-	if (n > 2147483647 || n < -2147483648)
+	nbr = n;
+	sptr = (char *) ft_calloc(ft_itoa_size(nbr) + 1, 1);
+	if (!sptr)
 		return (NULL);
-	str = NULL;
-	i = num_len(n);
-	if (n == 0)
-		str = (char *)malloc(2);
-	else
-		str = (char *)malloc(num_len(n) + 1);
-	if (str == NULL)
-		return (NULL);
-	new_string(str, n);
-	str[i] = '\0';
-	return (str);
+	index = 0;
+	if (nbr < 0)
+	{
+		sptr[index++] = '-';
+		nbr *= -1;
+	}
+	ft_itoa_fill(sptr, &index, nbr);
+	sptr[index] = 0;
+	return (sptr);
 }
 
+//#include <stdio.h>
 // int main(void){
 //     printf("%s", ft_itoa(68));
 //     printf("%c", '\n');
